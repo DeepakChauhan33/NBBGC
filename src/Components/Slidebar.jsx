@@ -1,83 +1,149 @@
 
-import { Link, NavLink } from "react-router-dom";
-import { IoMdHome } from "react-icons/io";
-import { FaBook, FaWindowMaximize } from "react-icons/fa";
-import { MdLibraryBooks, MdMiscellaneousServices } from "react-icons/md";
-import { CgLogOut } from "react-icons/cg";
-import clg_photo from "../assets/Photos/NBBGC.jpeg";
 
-const Slidebar = () => {
 
-  //fixed left-0 top-0 h-screen w-[20%] z-50
+
+
+
+import React, { useState } from "react";
+import { Link } from 'react-router-dom';
+import { Menu, X, Home, BookOpen, GraduationCap, Calendar, FileText, LogOut, ChevronRight } from "lucide-react";
+
+const SidebarLayout = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="hidden md:flex  shadow-lg flex-col fixed left-0 top-0 h-screen w-[20%] z-50">
-      <div className="flex justify-between items-center p-3 border-b">
-        <img className="h-12 w-auto" src={clg_photo} alt="College" />
+    <>
+      {/* Sidebar */}
+      <aside
+        className={`fixed inset-y-0 left-0 transform bg-gray-100 border-r border-1 border-gray-200 w-60 z-40 transition-transform duration-300 ease-in-out 
+        ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
+      >
+        <div className="flex flex-col h-full justify-end-safe">
+          {/* Logo */}
+          <div className="flex items-center justify-between px-4 py-3 shadow-sm">
+
+            <div className="flex h-15 w-15 items-center gap-2">
+              <img src="https://www.coreldraw.com/static/cdgs/landing_pages/seo/logo-design/08-symmetry.jpg" alt="" />
+            </div>
+
+            <button
+              className="md:hidden text-gray-600"
+              onClick={() => setSidebarOpen(false)}
+            >
+              <X size={22} />
+            </button>
+          </div>
+
+          {/* Menu */}
+          <nav className=" prose flex-1 overflow-y-auto mt-3 text-black">
+            <span className="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              Main Menu
+            </span>
+            <ul className="mt-2 space-y-1">
+              <a
+                href="#"
+                className="flex items-center gap-3 px-4 py-2 text-red-700  font-medium rounded-md hover:bg-gray-200 "
+              >
+                <Home size={18} />
+                Dashboard
+              </a>
+              <li>
+                <a
+                  href="#"
+                  className="flex items-center gap-3 px-4 py-2 text-gray-700 font-medium rounded-md hover:bg-gray-200"
+                >
+                  <BookOpen size={18} />
+                  Courses
+                </a>
+              </li>
+
+              <Link to='/course'>
+
+              <li className="flex items-center gap-3 px-4 py-2 text-gray-700 font-medium rounded-md hover:bg-gray-200">
+                
+                  <GraduationCap size={18} />
+                  Grades
+               
+              </li>
+              </Link>
+              <li>
+                <a
+                  href="#"
+                  className="flex items-center gap-3 px-4 py-2 text-gray-700 font-medium rounded-md hover:bg-gray-200"
+                >
+                  <Calendar size={18} />
+                  Schedule
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="flex items-center gap-3 px-4 py-2 text-gray-700 font-medium rounded-md hover:bg-gray-200"
+                >
+                  <FileText size={18} />
+                  Assignments
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          {/* User Info */}
+          <div className="border-t border-gray-200 p-4">
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold">
+                A
+              </div>
+              <div className="flex-1">
+                <p className="text-sm font-semibold text-gray-700">
+                  Alex Johnson
+                </p>
+                <p className="text-xs text-gray-500">Junior Year</p>
+              </div>
+            </div>
+            <button className="mt-3 w-full flex items-center justify-center gap-2 py-2 text-sm text-red-500 font-medium hover:bg-red-50 rounded-md">
+              <LogOut size={16} /> Logout
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      {/* Overlay (for mobile) */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-30 z-30 md:hidden"
+          onClick={() => setSidebarOpen(false)}
+        ></div>
+      )}
+
+      {/* Main Content Area */}
+      <div className=" flex flex-col">
+        {/* Header */}
+        <header className="sticky top-0 bg-white border-b border-gray-200 flex items-center justify-between px-4 py-3 shadow-sm z-10">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setSidebarOpen(true)}
+              className="md:hidden text-gray-700"
+            >
+              <Menu size={24} />
+            </button>
+            <h2 className="text-lg font-semibold text-gray-700">
+              Dashboard
+            </h2>
+          </div>
+
+          {/* <div className="flex items-center gap-3">
+            <button className="text-gray-600 hover:text-gray-800">
+              <ChevronRight size={20} />
+            </button>
+            <div className="h-8 w-8 bg-blue-200 rounded-full flex items-center justify-center font-bold text-gray-700">
+              A
+            </div>
+          </div> */}
+        </header>
+
       </div>
-
-      <nav className="mt-3  flex flex-col flex-1 text-lg font-medium text-black">
-        <ul className="space-y-3 text-[1rem]">
-          <li>
-            <NavLink to="/account" className={ ({ isActive }) =>
-              `flex items-center gap-2 p-2 rounded-md transition text-black ${isActive
-                ? "bg-yellow-200 text-gray-500"   // Active link
-                : "bg-white text-gray-700 hover:bg-gray-200" // Inactive link
-              }`
-            }>
-              <IoMdHome /> Account
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/book-subject" className={({ isActive }) =>
-              `flex items-center gap-2 p-2 rounded-md transition text-black ${isActive
-                ? "bg-yellow-200 text-gray-500"   // Active link
-                : "bg-white text-gray-700 hover:bg-gray-200" // Inactive link
-              }`
-            }>
-              <FaBook /> Book & Subject
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/pay-fee" className={({ isActive }) =>
-              `flex items-center gap-2 p-2 rounded-md transition text-black ${isActive
-                ? "bg-yellow-200 text-gray-500"   // Active link
-                : "bg-white text-gray-700 hover:bg-gray-200" // Inactive link
-              }`
-            }>
-              <FaWindowMaximize /> Pay Fee
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/examination" className={({ isActive }) =>
-              `flex items-center gap-2 p-2 rounded-md transition text-black ${isActive
-                ? "bg-yellow-200 text-gray-500"   // Active link
-                : "bg-white text-gray-700 hover:bg-gray-200" // Inactive link
-              }`
-            }>
-              <MdLibraryBooks /> Examination
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/services" className={({ isActive }) =>
-              `flex items-center gap-2 p-2 rounded-md transition text-black ${isActive
-                ? "bg-yellow-200 text-gray-500"   // Active link
-                : "bg-white text-gray-700 hover:bg-gray-200" // Inactive link
-              }`
-            }>
-              <MdMiscellaneousServices /> Services
-            </NavLink>
-          </li>
-        </ul>
-
-        <button className="mt-auto flex items-center gap-2 p-2 hover:bg-gray-300 rounded-md">
-          <CgLogOut /> Logout
-        </button>
-      </nav>
-    </div>
-
-
+    </>
   );
 };
 
-export default Slidebar;
+export default SidebarLayout;

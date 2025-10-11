@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+
+.prose a {
+  color: inherit;
+  text-decoration: none;
+}

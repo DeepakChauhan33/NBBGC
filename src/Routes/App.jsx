@@ -2,8 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Slidebar from "../Components/Slidebar";
 import Navbar from "../Components/Navbar";
 
-// import Examination from "./Pages/Examination";
-// import Services from "./Pages/Services";
+
 
 import { Outlet } from "react-router-dom";
 
@@ -12,29 +11,35 @@ function App() {
 
   return (
 
-    <div className="flex flex-col md:flex-row h-screen w-full">
+    <>
 
-      <Slidebar/>
+      <div>
+      {/* Fixed Header */}
+      <header className="fixed top-0 left-0 w-full h-20 z-30 flex items-center px-6 ml-54 ">
+        <Navbar />
+      </header>
 
-      <div className="flex flex-col flex-1 md:ml-[22%] w-full overflow-hidden">
-        <Navbar/>
+      {/* Fixed Sidebar */}
+      <aside className="fixed top-16 left-0 w-60 h-[calc(100vh-4rem)] border-r z-20 flex flex-col ">
+          <Slidebar/>
+        {/* Sidebar content */}
+      </aside>
 
-        <main className="flex-1 overflow-y-auto p-4">
-          <Outlet/>
-        </main>
-      </div>
+      {/* Display Area */}
+      <main
+        className=" p-8 min-h-screen"
+        style={{
+          marginLeft: "15rem",     // Sidebar width
+          marginTop: "5rem",       // Header height
+        }}
+      >
+        <Outlet />
+      </main>
     </div>
 
 
-    // <main className="h-screen flex  w-full ">
-    //   <div className="flex  h-full fixed">
-    //     <Slidebar />
-        
-    //   </div>
 
-    // </main>
-
-
+    </>
 
   );
 }
