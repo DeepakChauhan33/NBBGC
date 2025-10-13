@@ -26,7 +26,7 @@ const Account = () => {
 
         {/* BOX1 */}
 
-        <div className="border shadow-sm py-10 rounded-xl flex justify-around items-center gap-1">
+        <div className="border shadow-sm py-10 rounded-xl flex justify-around items-center gap-1 transform hover:scale-104 transition duration-100">
           <div>
             <span className="text-[16px] text-gray-500 font-bold">
               Current GPA
@@ -43,7 +43,7 @@ const Account = () => {
 
         {/* BOX2 */}
 
-        <div className="border shadow-sm py-10 rounded-xl flex justify-around items-center gap-1">
+        <div className="border shadow-sm py-10 rounded-xl flex justify-around items-center gap-1 transform hover:scale-104 transition duration-100">
           <div>
             <span className="text-[16px] text-gray-500 font-bold">
               Enrolled Courses
@@ -61,7 +61,7 @@ const Account = () => {
 
         {/* BOX 3 */}
 
-        <div className="border shadow-sm py-10 rounded-xl flex justify-around items-center gap-1">
+        <div className="border shadow-sm py-10 rounded-xl flex justify-around items-center gap-1 transform hover:scale-104 transition duration-100">
           <div>
             <span className="text-[16px] text-gray-500 font-bold">
               Classes Taken This Week
@@ -78,7 +78,7 @@ const Account = () => {
 
         {/* BOX 4 */}
 
-        <div className="border shadow-sm py-10 rounded-xl flex justify-around items-center gap-1">
+        <div className="border shadow-sm py-10 rounded-xl flex justify-around items-center gap-1 transform hover:scale-104 transition duration-100">
           <div>
             <span className="text-[16px] text-gray-500 font-bold">
               Achievements
@@ -183,6 +183,7 @@ const Account = () => {
                 CSS
               </p>
             </div>
+            
 
             <div>
               <span className="text-gray-500 font-semibold">

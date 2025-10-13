@@ -15,9 +15,9 @@ function App() {
 
       <div>
       {/* Fixed Header */}
-      <header className="fixed top-0 left-0 w-full h-20 z-30 flex items-center px-6 ml-54 ">
+      {/* <header className="fixed top-0 left-0  right-0 w-full h-20 z-30 flex items-center px-6 ml-54 ">
         <Navbar />
-      </header>
+      </header> */}
 
       {/* Fixed Sidebar */}
       <aside className="fixed top-16 left-0 w-60 h-[calc(100vh-4rem)] border-r z-20 flex flex-col ">
@@ -27,13 +27,20 @@ function App() {
 
       {/* Display Area */}
       <main
-        className=" p-8 min-h-screen"
+        className=" min-h-screen"
         style={{
           marginLeft: "15rem",     // Sidebar width
-          marginTop: "5rem",       // Header height
+                // Header height
         }}
       >
-        <Outlet />
+        <header className="mb-4">
+          <Navbar/>
+        </header>
+        
+
+        <div className="p-2">
+          <Outlet />
+        </div>
       </main>
     </div>
 

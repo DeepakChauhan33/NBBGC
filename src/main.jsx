@@ -6,7 +6,8 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Account from './Pages/Account/Account.jsx'
 import App from './Routes/App.jsx'
 import './Style/index.css'
-import Course from './Pages/Course/Course.jsx'
+import Courses from './Pages/Courses/Courses.jsx'
+import Grades from './Pages/Grades/Grades.jsx'
 
 
 
@@ -16,7 +17,10 @@ const router = createBrowserRouter([
     element: <App/>,
     children: [
       { path: "/", element: <Account/>},
-      {path: "/course", element : <Course/> },
+      {path: "/grades", element : <Grades/> },
+      {path: "/courses", element : <Courses/> },
+      // {path: "/grades", element : <Grades/> },
+      // {path: "/grades", element : <Grades/> },
     ]
   }
 ])

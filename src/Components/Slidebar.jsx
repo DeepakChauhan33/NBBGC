@@ -5,7 +5,7 @@
 
 
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Menu, X, Home, BookOpen, GraduationCap, Calendar, FileText, LogOut, ChevronRight } from "lucide-react";
 
 const SidebarLayout = () => {
@@ -40,50 +40,155 @@ const SidebarLayout = () => {
               Main Menu
             </span>
             <ul className="mt-2 space-y-1">
-              <a
-                href="#"
-                className="flex items-center gap-3 px-4 py-2 text-red-700  font-medium rounded-md hover:bg-gray-200 "
+
+
+              {/* DASHBOARD ELEMENTS */}
+              <NavLink
+                to="/"
+                end
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-4 py-2 font-medium rounded-md hover:bg-gray-200 ${isActive ? "text-blue-500 font-bold" : "text-gray-500"
+                  }`
+                }
               >
                 <Home size={18} />
                 Dashboard
-              </a>
-              <li>
-                <a
-                  href="#"
-                  className="flex items-center gap-3 px-4 py-2 text-gray-700 font-medium rounded-md hover:bg-gray-200"
-                >
-                  <BookOpen size={18} />
-                  Courses
-                </a>
-              </li>
+              </NavLink>
 
-              <Link to='/course'>
 
-              <li className="flex items-center gap-3 px-4 py-2 text-gray-700 font-medium rounded-md hover:bg-gray-200">
-                
-                  <GraduationCap size={18} />
-                  Grades
-               
-              </li>
-              </Link>
-              <li>
-                <a
-                  href="#"
-                  className="flex items-center gap-3 px-4 py-2 text-gray-700 font-medium rounded-md hover:bg-gray-200"
-                >
-                  <Calendar size={18} />
-                  Schedule
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="flex items-center gap-3 px-4 py-2 text-gray-700 font-medium rounded-md hover:bg-gray-200"
-                >
-                  <FileText size={18} />
-                  Assignments
-                </a>
-              </li>
+
+
+              {/* COURSES ELEMENTS */}
+              <NavLink
+                to="/courses"
+                end
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-4 py-2 font-medium rounded-md hover:bg-gray-200 ${isActive ? "text-blue-500 font-bold" : "text-gray-500"
+                  }`
+                }
+              >
+                < BookOpen size={18} />
+                Courses
+              </NavLink>
+
+
+
+              {/* GRADES ELEMENTS */}
+              <NavLink
+                to="/grades"
+                end
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-4 py-2 font-medium rounded-md hover:bg-gray-200 ${isActive ? "text-blue-500 font-bold" : "text-gray-500"
+                  }`
+                }
+              >
+                <GraduationCap size={18} />
+                Grades
+              </NavLink>
+
+
+
+              {/* SCHEDULE ELEMENTS */}
+              <NavLink
+                to="/schedules"
+                end
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-4 py-2 font-medium rounded-md hover:bg-gray-200 ${isActive ? "text-blue-500 font-bold" : "text-gray-500"
+                  }`
+                }
+              >
+                <Calendar size={18} />
+                Schedule
+              </NavLink>
+
+
+
+              {/* ASSIGNEMENTS */}
+              <NavLink
+                to="/assignments"
+                end
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-4 py-2 font-medium rounded-md hover:bg-gray-200 ${isActive ? "text-blue-500 font-bold" : "text-gray-500"
+                  }`
+                }
+              >
+                <FileText size={18} />
+                Assignments
+              </NavLink>
+
+
+              <NavLink
+                to="/"
+                end
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-4 py-2 font-medium rounded-md hover:bg-gray-200 ${isActive ? "text-blue-500 font-bold" : "text-gray-500"
+                  }`
+                }
+              >
+                <Home size={18} />
+                Dashboard
+              </NavLink>
+
+
+
+
+              {/* COURSES ELEMENTS */}
+              <NavLink
+                to="/courses"
+                end
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-4 py-2 font-medium rounded-md hover:bg-gray-200 ${isActive ? "text-blue-500 font-bold" : "text-gray-500"
+                  }`
+                }
+              >
+                < BookOpen size={18} />
+                Courses
+              </NavLink>
+
+
+
+              {/* GRADES ELEMENTS */}
+              <NavLink
+                to="/grades"
+                end
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-4 py-2 font-medium rounded-md hover:bg-gray-200 ${isActive ? "text-blue-500 font-bold" : "text-gray-500"
+                  }`
+                }
+              >
+                <GraduationCap size={18} />
+                Grades
+              </NavLink>
+
+
+
+              {/* SCHEDULE ELEMENTS */}
+              <NavLink
+                to="/schedules"
+                end
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-4 py-2 font-medium rounded-md hover:bg-gray-200 ${isActive ? "text-blue-500 font-bold" : "text-gray-500"
+                  }`
+                }
+              >
+                <Calendar size={18} />
+                Schedule
+              </NavLink>
+
+
+
+              {/* ASSIGNEMENTS */}
+              <NavLink
+                to="/assignments"
+                end
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-4 py-2 font-medium rounded-md hover:bg-gray-200 ${isActive ? "text-blue-500 font-bold" : "text-gray-500"
+                  }`
+                }
+              >
+                <FileText size={18} />
+                Assignments
+              </NavLink>
             </ul>
           </nav>
 
@@ -100,20 +205,22 @@ const SidebarLayout = () => {
                 <p className="text-xs text-gray-500">Junior Year</p>
               </div>
             </div>
-            <button className="mt-3 w-full flex items-center justify-center gap-2 py-2 text-sm text-red-500 font-medium hover:bg-red-50 rounded-md">
+            <button className="mt-3 w-full flex items-center justify-center gap-2 py-2 text-sm text-red-500 font-medium hover:bg-red-100 rounded-md">
               <LogOut size={16} /> Logout
             </button>
           </div>
         </div>
-      </aside>
+      </aside >
 
       {/* Overlay (for mobile) */}
-      {sidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-30 z-30 md:hidden"
-          onClick={() => setSidebarOpen(false)}
-        ></div>
-      )}
+      {
+        sidebarOpen && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-30 z-30 md:hidden"
+            onClick={() => setSidebarOpen(false)}
+          ></div>
+        )
+      }
 
       {/* Main Content Area */}
       <div className=" flex flex-col">
