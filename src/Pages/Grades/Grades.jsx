@@ -93,7 +93,7 @@ const Course = () => {
 
         {/* See Result */}
 
-        <div className='shadow-lg rounded-2xl p-3'>
+        <div className='shadow-md rounded-2xl p-3'>
           <div className='flex p-2 gap-2 '>
             <p className=' p-2 font-extrabold text-[20px]'>< IoSearch /></p>
 
@@ -141,7 +141,7 @@ const Course = () => {
 
           </div>
 
-          <button className='w-full p-2 bg-gray-500 text-center rounded-2xl overflow-hidden text-white font-bold '>
+          <button className='w-full p-2 bg-gray-600 text-center !rounded-lg hover:bg-gray-700 hover:text-white overflow-hidden text-gray-100 font-bold '>
             View Result
           </button>
 

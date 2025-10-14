@@ -8,6 +8,8 @@ import App from './Routes/App.jsx'
 import './Style/index.css'
 import Courses from './Pages/Courses/Courses.jsx'
 import Grades from './Pages/Grades/Grades.jsx'
+import Assignments from './Pages/Assignment/Assignments.jsx'
+import Schedules from './Pages/Schedule/schedules.jsx'
 
 
 
@@ -19,7 +21,8 @@ const router = createBrowserRouter([
       { path: "/", element: <Account/>},
       {path: "/grades", element : <Grades/> },
       {path: "/courses", element : <Courses/> },
-      // {path: "/grades", element : <Grades/> },
+      {path: "/schedules", element : <Schedules/>},
+      {path: "/assignments", element : <Assignments/> },
       // {path: "/grades", element : <Grades/> },
     ]
   }

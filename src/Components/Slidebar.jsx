@@ -36,7 +36,7 @@ const SidebarLayout = () => {
 
           {/* Menu */}
           <nav className=" prose flex-1 overflow-y-auto mt-3 text-black">
-            <span className="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+            <span className="px-4 text-sm font-semibold text-gray-600 uppercase tracking-wider">
               Main Menu
             </span>
             <ul className="mt-2 space-y-1">
@@ -193,18 +193,8 @@ const SidebarLayout = () => {
           </nav>
 
           {/* User Info */}
-          <div className="border-t border-gray-200 p-4">
-            <div className="flex items-center gap-3">
-              <div className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold">
-                A
-              </div>
-              <div className="flex-1">
-                <p className="text-sm font-semibold text-gray-700">
-                  Alex Johnson
-                </p>
-                <p className="text-xs text-gray-500">Junior Year</p>
-              </div>
-            </div>
+          <div className="border-t h-[20%] border-gray-200 p-4">
+            
             <button className="mt-3 w-full flex items-center justify-center gap-2 py-2 text-sm text-red-500 font-medium hover:bg-red-100 rounded-md">
               <LogOut size={16} /> Logout
             </button>
